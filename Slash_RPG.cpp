@@ -17,8 +17,12 @@ int main()
    Character player{windowWidth, windowHeight};
 
    Prop rock{Vector2{0.f,0.f},LoadTexture("nature_tileset/Rock.png")}; 
- 
 
+   Prop props[2]{
+        Prop{Vector2{600.f,300.f},LoadTexture("nature_tileset/Rock.png")},
+        Prop{Vector2{400.f,500.f},LoadTexture("nature_tileset/Log.png")}
+   };
+ 
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
@@ -30,7 +34,12 @@ int main()
         // draw a map here
         DrawTextureEx(map, mapPos, 0.0, mapScale, WHITE);
 
-        rock.Render(player.getWorldPos());
+
+        //draw the props
+        for(auto prop : props)
+        {
+            prop.Render(player.getWorldPos());
+        }
 
         player.tick(GetFrameTime());
         // check map bounds
@@ -40,6 +49,15 @@ int main()
             player.getWorldPos().y + windowHeight > map.width * mapScale)
             {
                 player.undoMovement();
+            }
+
+            // checking a rock and tree prop collisions
+            for(auto prop: props)
+            {
+               if (CheckCollisionRecs(prop.getCollisionRec(player.getWorldPos()), player.GetCollisionRec()))
+               {
+                   player.undoMovement();
+               }
             }
 
         EndDrawing();
