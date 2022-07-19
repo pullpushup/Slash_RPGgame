@@ -1,3 +1,7 @@
+/*
+This is parent source file of Slash RPG game
+*/
+
 #include "raylib.h"
 #include "raymath.h"
 #include "Character.h"
