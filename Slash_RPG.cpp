@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "Character.h"
+#include "Prop.h"
 
 int main()
 {
@@ -13,8 +14,10 @@ int main()
     Vector2 mapPos{0.0, 0.0};
     const float mapScale{6.0f};
 
-   Character player;
-    player.setScreenPos(windowWidth, windowHeight);
+   Character player{windowWidth, windowHeight};
+
+   Prop rock{Vector2{0.f,0.f},LoadTexture("nature_tileset/Rock.png")}; 
+ 
 
     SetTargetFPS(60);
     while (!WindowShouldClose())
@@ -26,6 +29,9 @@ int main()
 
         // draw a map here
         DrawTextureEx(map, mapPos, 0.0, mapScale, WHITE);
+
+        rock.Render(player.getWorldPos());
+
         player.tick(GetFrameTime());
         // check map bounds
         if(player.getWorldPos().x < 0.f ||
