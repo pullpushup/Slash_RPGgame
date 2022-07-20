@@ -18,6 +18,9 @@ Character::Character(int winWidth, int winHeight):
 
 void Character::tick(float deltaTime)
 { 
+
+    if(!getAlive()) return; 
+
     if (IsKeyDown(KEY_A))
         velocity.x -= 1.0;
     if (IsKeyDown(KEY_D))
@@ -26,8 +29,10 @@ void Character::tick(float deltaTime)
         velocity.y -= 1.0;
     if (IsKeyDown(KEY_S))
         velocity.y += 1.0; 
+    
     BaseCharacter::tick(deltaTime);
-
+    
+    //draw the sword
     Vector2 origin{};
     Vector2 offset{};
     float rotation{}; 
@@ -41,19 +46,19 @@ void Character::tick(float deltaTime)
             weapon.width*scale,
             weapon.height*scale
         };
-        rotation = 35.f; 
+        rotation = IsMouseButtonDown(MOUSE_LEFT_BUTTON) ? 35.f : 0.f;
     }
     else
     {
-         origin = {weapon.width* scale, weapon.height * scale};
-         offset = {25.f,55.f};
-         weaponCollisionRec = {
-         getScreenPos().x + offset.x - weapon.width*scale,
-        getScreenPos().y + offset.y - weapon.height*scale,
-        weapon.width * scale,
-        weapon.height * scale
+         origin = {weapon.width * scale, weapon.height * scale};
+        offset = {25.f, 55.f};
+        weaponCollisionRec = {
+            getScreenPos().x + offset.x - weapon.width * scale,
+            getScreenPos().y + offset.y - weapon.height * scale,
+            weapon.width * scale,
+            weapon.height * scale
         };
-        rotation = -35.f; 
+        rotation = IsMouseButtonDown(MOUSE_LEFT_BUTTON) ? -35.f : 0.f;
     } 
 
     // adding a sword/weapon
@@ -61,13 +66,15 @@ void Character::tick(float deltaTime)
     Rectangle dest{getScreenPos().x + offset.x, getScreenPos().y + offset.y, weapon.width *scale, weapon.height * scale};
     DrawTexturePro(weapon, source, dest, origin, 0.f, WHITE);
 
-    DrawRectangleLines(
-        weaponCollisionRec.x,
-        weaponCollisionRec.y,
-        weaponCollisionRec.width,
-        weaponCollisionRec.height,
-        RED
-            );
 }
+
+    void Character::takeDamage(float damage)
+    {
+        health -= damage;
+        if(health <=0.f)
+        {
+            setAlive(false);
+        }
+    }
 
 

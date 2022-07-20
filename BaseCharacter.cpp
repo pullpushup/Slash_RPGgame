@@ -28,13 +28,13 @@ Rectangle BaseCharacter::getCollisionRec()
 
         //update animation frame
         runningTime += deltaTime;
-    if (runningTime >= updateTime)
-    {
-        frame++;
-        runningTime = 0.f;
-        if (frame > maxFrames)
-            frame = 0;
-    }
+         if (runningTime >= updateTime)
+          {
+             frame++;
+             runningTime = 0.f;
+                if (frame > maxFrames)
+                frame = 0;
+         }
 
     if (Vector2Length(velocity) != 0.0)
     {
