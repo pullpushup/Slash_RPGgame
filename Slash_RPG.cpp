@@ -21,7 +21,6 @@ int main()
 
    Character player{windowWidth, windowHeight};
 
-   Prop rock{Vector2{0.f,0.f},LoadTexture("nature_tileset/Rock.png")}; 
 
    Prop props[2]{
         Prop{Vector2{600.f,300.f},LoadTexture("nature_tileset/Rock.png")},
@@ -33,6 +32,8 @@ int main()
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")
    };
+
+   monster.setTarget(&player);
             
  
     SetTargetFPS(60);
@@ -66,7 +67,7 @@ int main()
             // checking a rock and tree prop collisions
             for(auto prop: props)
             {
-               if (CheckCollisionRecs(prop.getCollisionRec(player.getWorldPos()), player.GetCollisionRec()))
+               if (CheckCollisionRecs(prop.getCollisionRec(player.getWorldPos()), player.getCollisionRec()))
                {
                    player.undoMovement();
                }

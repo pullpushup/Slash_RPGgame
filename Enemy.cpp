@@ -1,47 +1,33 @@
 #include "Enemy.h"
+#include "raymath.h"
 
-Enemy::Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture) :
-        worldPos(pos),
-        texture(idle_texture),
-        idle(idle_texture),
-        run(run_texture)
+Enemy::Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture)
+        
     {
+        worldPos = pos;
+        texture = idle_texture;
+        idle = idle_texture;
+        run = run_texture;
         width = texture.width / maxFrames;
         height = texture.height;
+        speed = 3.5f;
     }
 
     void Enemy::tick(float deltaTime)
     {
-        worldPosLastFrame = worldPos;
+        //to the target
+        Vector2 toTarget = Vector2Subtract(target->getScreenPos(), screenPos);
+        //normalize to target
+        toTarget = Vector2Normalize(toTarget);
 
-          // update the character frame
-    runningTime += deltaTime;
-    if (runningTime >= updateTime)
-    {
-        frame++;
-        runningTime = 0.f;
-        if (frame > maxFrames)
-            frame = 0;
+        //multi target by speed
+        toTarget = Vector2Scale(toTarget, speed);
+
+        //move to enemy
+        worldPos = Vector2Add(worldPos, toTarget);
+
+        screenPos = Vector2Subtract(worldPos, target->getWorldPos()); 
+        BaseCharacter::tick(deltaTime);
     }
 
-    // draw the character
-    Rectangle source{frame * width, 0.f, rightLeft * width, height};
-    Rectangle dest{screenPos.x, screenPos.y, scale * width, scale * height};
-    DrawTexturePro(texture, source, dest, Vector2{}, 0.f, WHITE);
-    }
-
-    void Enemy::undoMovement()
-    {
-        worldPos = worldPosLastFrame;
-    }
-
-    Rectangle Enemy::GetCollisionRec()
-    {
-        return Rectangle{
-        screenPos.x,
-        screenPos.y,
-        width * scale,
-        height * scale
-
-    };
-    }
+   
