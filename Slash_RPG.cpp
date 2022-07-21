@@ -18,7 +18,7 @@ int main()
 
     Texture2D map = LoadTexture("WorldMap.png");
     Vector2 mapPos{0.0, 0.0};
-    const float mapScale{6.0f};
+    const float mapScale{4.0f};
 
    Character player{windowWidth, windowHeight};
 
@@ -36,7 +36,7 @@ int main()
    Enemy monster2{
         Vector2{500.f, 700.f},
         LoadTexture("characters/slime_idle_spritesheet.png"),
-        LoadTexture("characters/slime_idle_spritesheet.png")
+        LoadTexture("characters/slime_run_spritesheet.png")
      };
 
      Enemy* enemies[2]{
@@ -47,11 +47,7 @@ int main()
         {
          enemy->setTarget(&player); 
          }
-            
-
-   monster.setTarget(&player);
-            
- 
+             
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
@@ -61,15 +57,14 @@ int main()
         mapPos = Vector2Scale(player.getWorldPos(), -1.f);
 
         // draw a map here
-        DrawTextureEx(map, mapPos, 0.0, mapScale, WHITE);
+        DrawTextureEx(map, mapPos, 0.0, 4.0, WHITE);
 
 
         //draw the props
         for(auto prop : props)
         {
             prop.Render(player.getWorldPos());
-            EndDrawing();
-            continue;
+            
         }
 
         if (!player.getAlive()) //player is dead
