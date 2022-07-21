@@ -38,10 +38,35 @@ int main()
         LoadTexture("characters/slime_idle_spritesheet.png"),
         LoadTexture("characters/slime_run_spritesheet.png")
      };
+     Enemy monster3{
+        Vector2{600.f, 800.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+     Enemy monster4{
+        Vector2{1200.f, 1600.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+      Enemy monster5{
+            Vector2{1350.f, 1800.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster6{
+            Vector2{1750.f, 2500.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster7{
+            Vector2{2050.f, 2500.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  
 
-     Enemy* enemies[2]{
+
+     Enemy* enemies[7]{
             &monster,
-            &monster2
+            &monster2,
+            &monster3, &monster4, &monster5, &monster6, &monster7
      };
         for (auto enemy : enemies)
         {
