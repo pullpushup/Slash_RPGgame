@@ -12,11 +12,15 @@ character. h have texture and character.cpp and BaseCharacter.cpp and .h hold so
 prop.h & prop.cpp has texture and collision value
 Main Ai source in Enemy.h and in main file Slash_RPG 
 
+<i>This Contain those AI locations </i>       
+
 "Enemy monster{
             Vector2{2050.f, 2500.f},
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")"
 
-This Contain those AI locations             
+Enemy Ai
+<img src="characters/goblin_run_spritesheet.png" alt="Enemy Ai" width="96" height="16">
+
 
 
