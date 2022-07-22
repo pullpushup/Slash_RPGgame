@@ -94,16 +94,58 @@ int main()
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")
    };  
+        Enemy monster15{
+        Vector2{3500.f, 4000.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+     Enemy monster16{
+        Vector2{3800.f, 4200.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+      Enemy monster17{
+            Vector2{3900.f, 3280.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster18{
+            Vector2{4000.f, 5000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster19{
+            Vector2{-2500.f, 5000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };     Enemy monster20{
+        Vector2{-3850.f, -4270.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+      Enemy monster21{
+            Vector2{3900.f, 5000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster22{
+            Vector2{4280.f, 5580.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster23{
+            Vector2{-2500.f, -4000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };
 
 
-     Enemy* enemies[14]{
+     Enemy* enemies[23]{
             &monster,
             &monster2,
             &monster3, &monster4, &monster5, &monster6, &monster7,
             &monster8, 
             &monster9, &monster10,
             &monster11, &monster12, &monster13,
-            &monster14
+            &monster14, &monster15,&monster16,&monster17,
+            &monster18, &monster19, &monster20, &monster21,
+            &monster22, &monster23
      };
         for (auto enemy : enemies)
         {
