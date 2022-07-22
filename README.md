@@ -18,10 +18,18 @@ Main Ai source in Enemy.h and in main file Slash_RPG
             Vector2{2050.f, 2500.f},
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")"
+<h3>Main Character</h3>
+<img src="characters/knight_idle_spritesheet.png" alt="Idle character" width="960" height="160">
+<h3>Main Character Running</h3>
+<img src="characters/knight_run_spritesheet.png" alt="Run character" width="960" height="160">
 
 <h3>Enemy Ai</h3>
 
 <img src="characters/goblin_run_spritesheet.png" alt="Enemy Ai" width="960" height="160">
+<img src="characters/slime_idle_spritesheet.png" alt="Enemy Ai 2" width="960" height="160">
+
+<h3>Weapon Sword</h3>
+<img src="characters/weapon_sword.png" alt="Weapon" width="160" height="160">
 
 
 
