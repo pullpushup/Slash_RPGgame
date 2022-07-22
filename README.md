@@ -1,5 +1,6 @@
 # Slash_RPGgame
 RPG game i made in c++
+<img src="Image/Screenshot_2.png" alt="Main Frame of Game" width="500" height="600">
 Makefile is made by raylib and i also use raylib https://www.raylib.com/
 its a really good libery and provide lots of stuff to make game just from vscode or any ide
 2D assets are taken from https://itch.io/
