@@ -149,9 +149,42 @@ int main()
             LoadTexture("characters/goblin_run_spritesheet.png")
    };
 
+          Enemy monster27{
+        Vector2{-6850.f, -4270.f},
+        LoadTexture("characters/slime_idle_spritesheet.png"),
+        LoadTexture("characters/slime_run_spritesheet.png")
+     };
+      Enemy monster28{
+            Vector2{-6900.f, 5000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster29{
+            Vector2{8050.f, 6580.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster30{
+            Vector2{-3500.f, -4000.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };
+       
+      Enemy monster31{
+            Vector2{8500.f, 6080.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster32{
+            Vector2{7800.f, 5580.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };  Enemy monster33{
+            Vector2{-6500.f, -2500.f},
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png")
+   };
 
 
-     Enemy* enemies[26]{
+
+     Enemy* enemies[33]{
             &monster,
             &monster2,
             &monster3, &monster4, &monster5, &monster6, &monster7,
@@ -161,7 +194,9 @@ int main()
             &monster14, &monster15,&monster16,&monster17,
             &monster18, &monster19, &monster20, &monster21,
             &monster22, &monster23, &monster24,
-            &monster25, &monster26
+            &monster25, &monster26, &monster27, &monster28,
+            &monster29, &monster30, &monster31,
+            &monster32, &monster33
      };
         for (auto enemy : enemies)
         {
