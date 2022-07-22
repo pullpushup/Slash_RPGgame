@@ -20,6 +20,8 @@ Main Ai source in Enemy.h and in main file Slash_RPG </b>
             Vector2{2050.f, 2500.f},
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")"
+
+            <i>I downloaded all these characters from itch.io</i>
 <h3>Main Character</h3>
 <img src="characters/knight_idle_spritesheet.png" alt="Idle character" width="960" height="160">
 <h3>Main Character Running</h3>
