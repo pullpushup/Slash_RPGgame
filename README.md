@@ -19,8 +19,9 @@ Main Ai source in Enemy.h and in main file Slash_RPG
             LoadTexture("characters/goblin_idle_spritesheet.png"),
             LoadTexture("characters/goblin_run_spritesheet.png")"
 
-Enemy Ai
-<img src="characters/goblin_run_spritesheet.png" alt="Enemy Ai" width="96" height="16">
+<h3>Enemy Ai</h3>
+
+<img src="characters/goblin_run_spritesheet.png" alt="Enemy Ai" width="960" height="160">
 
 
 
